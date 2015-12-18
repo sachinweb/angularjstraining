@@ -1,0 +1,31 @@
+    <!doctype html>
+    <html>
+      <head>
+      </head>
+      <body>
+
+
+        <div ng-app='myApp'>
+            <input type=text ng-model="name">
+        {{name | uppercase}} <br><br>
+            
+          <div ng-controller="c1">
+                      
+        {{today}} <br>
+            
+
+          </div>
+          </div>
+
+              <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+          <script >
+                var app1 = angular.module('myApp',[]);
+              app1.controller('c1', function($scope){
+                $scope.today = new Date();
+              });
+              
+          </script>
+
+
+      </body>
+    </html>
