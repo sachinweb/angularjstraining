@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+      
+      
+    <div ng-app='myApp'>
+        <div ng-controller='controllerOne' >
+            <input type=text ng-model='num1'>
+            <input type=text ng-model='num2'>
+             {{resultNum}}
+            <br><br>
+            <button title="add" ng-click='f_add()'>+</button>
+            <button title="subtract" ng-click='f_subtract()'>-</button>
+        </div>
+    </div>
+      
+          <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src='./04_data_bind_calc.js'></script>
+
+      
+  </body>
+</html>

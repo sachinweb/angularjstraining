@@ -1,0 +1,38 @@
+    <!doctype html>
+    <html>
+      <head>
+      </head>
+      <body>
+
+
+        <div ng-app='myApp'>
+            <div id='one' ng-controller='controllerOne' >
+                 <input type="text" ng-model='data.message'>
+            </div>
+            <div id='two' ng-controller='controllerTwo' >
+                 <input type="text" ng-model='data.message'>
+            </div>
+          </div>
+
+              <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+          <script >
+                var app1 = angular.module('myApp',[]);
+
+              app1.factory('MyFactoryData', function(){
+                  return {
+                      message : 'Message 1'
+                  }
+              });
+
+              app1.controller('controllerOne', function($scope, MyFactoryData){
+                $scope.data = MyFactoryData
+              });
+
+              app1.controller('controllerTwo', function($scope, MyFactoryData){
+                $scope.data = MyFactoryData
+              });
+          </script>
+
+
+      </body>
+    </html>

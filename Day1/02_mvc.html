@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+      
+      
+    <div ng-app='myApp'>
+        <div ng-controller='myFirstController'>
+            {{stringValue}}
+        </div>
+    </div>
+      
+          <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script>
+            var app1 = angular.module('myApp',[]);
+          app1.controller('myFirstController', function($scope){
+            $scope.stringValue = 'Some string';
+          });
+      </script>
+
+      
+  </body>
+</html>
