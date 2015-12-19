@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Without Angular with JQuery Demo-Powered by TKHTS.COM</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+
+</head>
+<!--Starting Point of Application-->
+<body >
+    
+    <button class="btn btn-primary" type="button">
+  Messages <span class="badge">4</span>
+</button>
+    
+    <div ng-app='calcApp'>
+
+        
+        <div class="nt-link"></div>
+        <div class="nt-link"></div>
+        <p class="nt-link"></p>
+
+    </div>
+<script type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script> 
+    <script>
+     var app = angular.module('calcApp',[])
+     
+     
+     app.directive('ntLink', function(){
+         return {
+             restrict: 'C',
+            template: '<a href="http://www.niit.com">NIIT Link</a>'
+            
+         }
+         
+         
+     })
+    
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+    </script>
+    
+    
+</body>
+</html>

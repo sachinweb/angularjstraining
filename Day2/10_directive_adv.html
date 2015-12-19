@@ -1,0 +1,32 @@
+    <!doctype html>
+    <html>
+      <head>
+          <!--<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.5/css/app.css" />-->
+          <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.5/css/foundation.css" />
+      </head>
+      <body>
+
+
+        <div ng-app='myApp'>
+            
+            <nt-enter numtimes='3' />
+         
+        </div>
+
+              <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+          <script >
+                var app1 = angular.module('myApp',[]);
+                
+              app1.directive('ntEnter', function(){
+                        return {
+                            restrict: 'E',
+                            template: ' Some text is: {{numTimesText}}'  ,
+                            link: function(scope, element, attrs){
+                                scope.numTimesText = attrs.numtimes
+                            }
+                        }
+                })
+                
+          </script>
+      </body>
+    </html>

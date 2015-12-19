@@ -1,0 +1,98 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Without Angular with JQuery Demo-Powered by TKHTS.COM</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+
+        </head>
+    <!--Starting Point of Application-->
+    <body >
+
+        <div ng-app='calcApp'>
+
+
+        <div ng-controller="AppCtrl">
+        <h4>Default</h4>
+        <uib-rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></uib-rating>
+
+    </div>
+
+        </div>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
+        <script>
+         var app = angular.module('calcApp',['ngAnimate','ui.bootstrap'])
+           app.controller('AppCtrl' , function($scope){
+            $scope.rate = 7;
+      $scope.max = 10;
+      $scope.isReadonly = false;
+
+      $scope.hoveringOver = function(value) {
+        $scope.overStar = value;
+        $scope.percent = 100 * (value / $scope.max);
+      };
+
+      $scope.ratingStates = [
+        {stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle'},
+        {stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty'},
+        {stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle'},
+        {stateOn: 'glyphicon-heart'},
+        {stateOff: 'glyphicon-off'}
+      ];
+         })
+
+         app.directive('ntBadge', function(){
+             return {
+                 restrict: 'E',
+                templateUrl: 'badge.html',
+                scope: {
+                    message : "=message",
+                    count : "=initvalue"
+                 },
+
+                 link: function(scope, element, attrs){
+                     console.log(scope)
+
+    //                 scope.message = attrs.message
+    //                  scope.count = attrs.initvalue
+
+                     element.bind('click', function(){
+                         console.log('clicked')
+                         scope.count = parseInt(scope.count) + parseInt(attrs.step)
+                         scope.$apply();
+                     })
+                 }
+
+
+             }
+
+
+         })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+
+
+    </body>
+    </html>

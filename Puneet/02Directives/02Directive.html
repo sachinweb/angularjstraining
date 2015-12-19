@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Without Angular with JQuery Demo-Powered by TKHTS.COM</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+
+</head>
+<!--Starting Point of Application-->
+<body >
+    
+ 
+    
+    <div ng-app='calcApp'>
+        
+        <div ng-controller='AppCtrl'> 
+        Value from Controller : <input type=text ng-model="init"/> <br>
+            <br>
+            
+            
+            Directives: <br>
+             <nt-badge message="Inbox" step="1" initValue="init"></nt-badge>
+             <nt-badge message="Message" step="-1" initValue="init "></nt-badge>
+            
+        </div>
+
+       
+
+    </div>
+<script type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script> 
+    <script>
+     var app = angular.module('calcApp',[])
+       app.controller('AppCtrl' , function($scope){
+        
+         $scope.init = 100;
+     })
+     
+     app.directive('ntBadge', function(){
+         return {
+             restrict: 'E',
+            templateUrl: 'badge.html',
+            scope: {
+                message : "=message",
+                count : "=initvalue"
+             },
+             
+             link: function(scope, element, attrs){
+                 console.log(scope)
+                 
+//                 scope.message = attrs.message
+//                  scope.count = attrs.initvalue
+                 
+                 element.bind('click', function(){
+                     console.log('clicked')
+                     scope.count = parseInt(scope.count) + parseInt(attrs.step)
+                     scope.$apply();
+                 })
+             }
+            
+            
+         }
+         
+         
+     })
+    
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+    </script>
+    
+    
+</body>
+</html>

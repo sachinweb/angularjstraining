@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Without Angular with JQuery Demo-Powered by TKHTS.COM</title>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.5/css/foundation.css"/>
+</head>
+<!--Starting Point of Application-->
+<body >
+    
+    <div ng-app='calcApp' >
+        
+       {{'captitaliZE This String' | lowercase | capitalizefilter}}
+
+    </div>
+<script type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script> 
+    <script>
+     var app = angular.module('calcApp',[])
+     
+     app.filter('capitalizefilter', function(){
+         
+         return function(input){
+             if(input) return input[0].toUpperCase() + '' + input.slice(1)
+             
+         }
+         
+     })
+     
+    
+    </script>
+    
+    
+</body>
+</html>

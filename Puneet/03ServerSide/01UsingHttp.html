@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Without Angular with JQuery Demo-Powered by TKHTS.COM</title>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.5/css/foundation.css"/>
+</head>
+<!--Starting Point of Application-->
+<body >
+    
+    <div ng-app='calcApp' ng-controller="myController">
+        <button ng-click="loadData()">Load Data</button>
+        
+        <input type=text ng-model="search.name" placeholder="Search By Name"/>
+         <input type=text ng-model="search.designation" placeholder="Search By Designation"/>
+        
+        <input type=text ng-model="search.$" placeholder="Search By All"/>
+
+        <!-- {{ employees | filter: search  }}-->
+        
+            
+        <table>
+            <tr ng-repeat="employee in employees | filter: search ">
+                <td>{{$index + 1}}</td>
+           <td>{{employee.name}}</td>
+                 <td>{{employee.designation}}</td>
+            </tr>
+        </table>
+
+    </div>
+<script type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script> 
+    <script>
+     var app = angular.module('calcApp',[])
+     
+     
+      
+      
+     app.controller('myController', function($scope, $http){
+         
+          var sucessfunction = function(data, status, header, config){
+                 console.log(data)
+             }
+        
+         
+         $scope.loadData = function(){
+             $http({
+                 url: 'http://localhost:8080/DemoWeb/TestServlet',
+                 method: 'POST',
+                 data: $scope.search
+             }).success(sucessfunction).erorr(function(data, status){
+                 $scope.employees = data
+             })
+         }
+         
+         
+     })
+    
+    </script>
+    
+    
+</body>
+</html>

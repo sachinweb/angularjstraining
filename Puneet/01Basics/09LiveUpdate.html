@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Without Angular with JQuery Demo-Powered by TKHTS.COM</title>
+<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.5/css/foundation.css"/>
+</head>
+<!--Starting Point of Application-->
+<body >
+    
+    <div ng-app='calcApp' ng-controller='myController' >
+        
+        <input type=text ng-model="fName">
+        <input type=text ng-model="lName">
+        
+       <button ng-click="loadData()">Load Data</button>
+
+    </div>
+<script type="text/javascript"  src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script> 
+    
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script>
+     var app = angular.module('calcApp',[])
+     
+     app.controller('myController', function($scope, $http){
+         
+         $scope.loadData = function(){
+             
+             /*$.ajax({url: "http://127.0.0.1:49279/01Basics/dummy.json", success: function(result){
+                console.log(result);
+                 $scope.fName = result.fname
+                 $scope.lName = result.lname
+                 
+                 $scope.$apply()
+            }});
+             */
+             
+             $http({
+                 url: "http://127.0.0.1:49279/01Basics/dummy.json",
+                 method: 'GET'
+             }).success(function(result){
+                 
+                 console.log(result);
+                 $scope.fName = result.fname
+                 $scope.lName = result.lname
+             })
+         }
+         
+         
+     })
+     
+    
+    </script>
+    
+    
+</body>
+</html>

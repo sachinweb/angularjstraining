@@ -12,17 +12,7 @@
             Name <input type=text ng-model="search.contactPoint.fn" size=20>
 
             <div ng-controller="c1">
-                      
-<!--
-                <table>
-                    <tr ng-repeat="employee in employees | filter: search">
-                        <td>{{employee.name}}</td>
-                        <td>{{employee.age}}</td>
-                        <td>{{employee.gender}}</td>
-                    </tr>
-                </table>
--->
-            
+
                 <table>
                     <tr ng-repeat="data in dataset | filter: search">
                         <td>{{data.title}}</td>
@@ -42,27 +32,9 @@
                 var app1 = angular.module('myApp',[]);
               app1.controller('c1', function($scope, Friend){
                   
-                  
                   Friend.get().then(function (result) {
-                      /*console.log(result);*/
                         $scope.dataset = result.data.dataset;
                     });
-                  
-                  
-                  
-                $scope.employees = [
-  {name:'John', age:25, gender:'boy'},
-  {name:'Jessie', age:30, gender:'girl'},
-  {name:'Johanna', age:28, gender:'girl'},
-  {name:'Joy', age:15, gender:'girl'},
-  {name:'Mary', age:28, gender:'girl'},
-  {name:'Peter', age:95, gender:'boy'},
-  {name:'Sebastian', age:50, gender:'boy'},
-  {name:'Erika', age:27, gender:'girl'},
-  {name:'Patrick', age:40, gender:'boy'},
-  {name:'Samantha', age:60, gender:'girl'}
-]
-                  
                   
               });
               

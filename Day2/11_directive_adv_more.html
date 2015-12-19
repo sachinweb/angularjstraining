@@ -1,0 +1,40 @@
+    <!doctype html>
+    <html>
+      <head>
+          <!--<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.5/css/app.css" />-->
+          <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.5/css/foundation.css" />
+      </head>
+      <body>
+
+
+        <div ng-app='myApp'>
+            
+            First: <nt-enter numtimes='3'></nt-enter><br><br>
+
+            Next one: <nt-enter numtimes='30'></nt-enter><br><br>
+         
+        </div>
+
+              <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+          <script >
+                var app1 = angular.module('myApp',[]);
+                
+              app1.directive('ntEnter', function(){
+                        return {
+                            restrict: 'E',
+                            scope:{},
+                            template: ' Some text is: {{numTimesText}}'  ,
+                            link: function(scope, element, attrs){
+                                scope.numTimesText = attrs.numtimes
+                                element.bind('click', function(){
+                                    console.log('Got the click!')
+                                    scope.numTimesText = parseInt(scope.numTimesText) + 1
+                                    scope.$apply()
+                                })
+                            }
+                        }
+                })
+                
+          </script>
+      </body>
+    </html>
