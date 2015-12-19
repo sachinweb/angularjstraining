@@ -1,0 +1,69 @@
+<html>
+<head>
+    <title>Angular</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+</head>
+<body ng-app='myApp'>
+
+    <div ng-controller="c1">
+        <div ng-view></div>
+    </div>
+    
+    
+    
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    
+    <script>
+        
+        
+        var app = angular.module('myApp', ['ngRoute'])
+        
+        app.controller('c1', function($scope, $location){
+            $scope.login_validate = function(){
+                console.log($location)
+                $location.path('/welcome')
+            }
+        })
+        
+        
+  /*      app1.factory('Friend', function ($http) {
+            return {
+                get: function () {
+                    console.log("inside function");
+                    return $http.get('test_json.json');
+                }
+            };
+        });*/
+        
+        app.config(function($routeProvider){
+            
+            $routeProvider.when('/', {
+                templateUrl: 'partials/15_spa_login.html',
+                controller: 'c1'
+            }).when('/welcome', {
+                templateUrl: 'partials/15_spa_welcome.html'
+            })
+            
+        })
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>

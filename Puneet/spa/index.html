@@ -22,8 +22,32 @@
         
         var app = angular.module('myApp', ['ngRoute'])
         
-        app.controller('AppCtrl', function($scope){
+        app.controller('AppCtrl', function($scope, $route, $http, $location){
+            console.log($route)
             $scope.today = new Date();
+            
+            
+            $scope.login = function(){
+                
+                  $http({
+                 url: 'auth.json',
+                 method: 'GET',
+                
+             }).success(function(data){
+                      if(data.auth){
+                          $location.path('/payment')
+                      }
+                      else{
+                          $scope.errorMessage = 'Invalid UserName/Password'
+                      }
+                      
+                      
+                  })
+        
+            }
+            
+          
+            
         })
         
         
