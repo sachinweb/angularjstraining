@@ -11,7 +11,7 @@
             <div ng-controller='controllerOne' > 
                 <input type=text ng-model='num1'>
 
-                First: <nt-enter numtimes='5'></nt-enter><br><br>
+                First: <nt-enter numtimes='{{num1}}'></nt-enter><br><br>
 
                 Next one: <nt-enter numtimes='30'></nt-enter><br><br>
             </div>
@@ -23,17 +23,12 @@
           <script>
          var app = angular.module('myApp',['sachinApp']);
           app.controller('controllerOne', function($scope){
+              $scope.num1 = 46
            console.log($scope.num1)
           });
           </script>
           
           <script >
-//               var app1 = angular.module('myApp',[]);
-              
-              /*app1.controller('controllerOne', function($scope){
-           console.log($scope.num1)
-          });*/
-              
               var app1 = angular.module('sachinApp', []);
                 
               app1.directive('ntEnter', function(){
